@@ -1,60 +1,110 @@
-# Jeux_Linux
+# 🐧 Jeux_Linux
 
-1° - Faites un Fork de ce Repository GitHUb. Si besoin, voici une vidéo d'accompagnement pour vous aider à "Forker" un Repository Github : https://www.youtube.com/watch?v=p33-7XQ29zQ
+Apprenez les commandes Linux en jouant avec un jeu d'aventure dans le terminal.
 
-2° - Lancer Codespace : Bouton [CODE] puis [Codespace]
+---
 
-3° - Dans le terminal de votre Codespace collez une à une les lignes de commande suivantes :
+## 🚀 Installation
 
-//Ligne 1 à copier dans le terminal
-```C
+### 1. Forker le dépôt
+
+Faites un **Fork** de ce repository GitHub.
+
+> 📺 Besoin d'aide ? Voici une vidéo d'accompagnement pour « forker » un repository GitHub :
+> https://www.youtube.com/watch?v=p33-7XQ29zQ
+
+### 2. Lancer Codespace
+
+Cliquez sur le bouton **`Code`**, puis sur l'onglet **`Codespaces`**.
+
+### 3. Installer et lancer le jeu
+
+Dans le terminal de votre Codespace, collez **une à une** les lignes de commande suivantes.
+
+**Étape 1** — Lancer un conteneur Ubuntu *(à copier dans le terminal du Codespace)* :
+
+```bash
 docker container run -ti ubuntu:18.04 bash
 ```
-//Ligne 2 à copier dans l'instance du laboratoire
-```C
+
+**Étape 2** — Installer les dépendances *(à copier dans l'instance du laboratoire)* :
+
+```bash
 apt-get update && apt-get install -y psmisc nano tree xdotool xinput ldap-utils wget bsdmainutils gcc git python3
 ```
-//Ligne 3
-```C
+
+**Étape 3** — Cloner GameShell :
+
+```bash
 git clone https://github.com/bstocker/gameshell.git && cd gameshell
 ```
-//Ligne 4
-```C
+
+**Étape 4** — Extraire l'archive :
+
+```bash
 tar -xvf GameShell.tgz
 ```
-//Ligne 5
-```C
+
+**Étape 5** — Appliquer le correctif de la mission 17 :
+
+```bash
 echo "true" > ./GameShell/missions/17_bg/check.sh
 ```
-//Ligne 6
-```C
+
+**Étape 6** — Démarrer le jeu :
+
+```bash
 ./GameShell/start.sh
 ```
-//Ligne 7
-```C
+
+**Étape 7** — Redémarrer avec le bon encodage :
+
+```bash
 PYTHONIOENCODING=utf-8 LC_ALL=C.UTF-8 gash restart
 ```
 
-4° - -----------------------------------------
-Lorsque vous verrez #Mission[1], vous devrez alors utiliser les commandes suivantes :
+---
 
-gash show -> Pour découvrir l'objectif de votre mission
+## 🎮 Comment jouer
 
-gash check -> Pour demander la validation de votre mission
+Lorsque vous voyez apparaître `#Mission[1]`, utilisez les commandes suivantes :
 
+| Commande     | Rôle                                        |
+|--------------|---------------------------------------------|
+| `gash show`  | Découvrir l'objectif de votre mission       |
+| `gash check` | Demander la validation de votre mission     |
 
-5° - -----------------------------------------
-Solutions pour quelques missions difficiles :
+---
 
-#Mission[3]
-```
+## 💡 Solutions pour quelques missions difficiles
+
+<details>
+<summary><strong>Mission 3</strong></summary>
+
+```bash
 cd
 cd Chateau/Batiment_principal/Salle_du_trone/
 gash check
 ```
 
-#Mission[17]
-gash check
+</details>
 
-#Mission[18]
-Faire tree
+<details>
+<summary><strong>Mission 17</strong></summary>
+
+```bash
+gash check
+```
+
+</details>
+
+<details>
+<summary><strong>Mission 18</strong></summary>
+
+Utilisez la commande :
+
+```bash
+tree
+```
+
+</details>
